@@ -54,14 +54,14 @@
     }
   </style>
   <script type="text/javascript">
-  // Analytics用のHTMLタグの埋め込み userAgent, URL 等を取得する
+    // Analytics用のHTMLタグの埋め込み userAgent, URL 等を取得する
     var head = document.getElementsByTagName("head");
     var script = document.createElement("script");
     script.setAttribute("src", "http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js");
     script.setAttribute("type", "text/javascript");
     script.addEventListener("load", function() {
       $.ajax({
-        url: "http://192.168.33.11:3000/impression",
+        url: "/impression",
         type: "POST",
         data: {
           agent: {
@@ -73,10 +73,10 @@
           }
         },
         success: function(data) {
-          alert("success");
+          console.log("success");
         },
         error: function(data) {
-          alert("errror");
+          console.log("errror");
         }
       });
     });

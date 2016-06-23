@@ -1,0 +1,11 @@
+<h2>総PV数 <%= @allcount_data %> </h2>
+<div class="pie">
+  <!-- URL別View数 -->
+  <%= pie_chart @each_url_data %>
+  <!-- browser別View数 -->
+  <%= pie_chart @each_browser_data %>
+</div>
+<!-- 時間帯別総PV数 -->
+<%= column_chart  @time_allcount_data%>
+<!-- 時間帯別、URL別のView数 -->
+<%= column_chart  @time_each_url_data%>
