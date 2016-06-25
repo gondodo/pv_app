@@ -1,0 +1,111 @@
+<div class="container-fluid">
+  <h2>All Pageviews
+    <%= @allcount_data %></h2>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          All Pageviews by URL
+        </div>
+        <div class="chart-stage">
+          <!-- URL別View数 -->
+          <%= bar_chart @each_url_data %>
+        </div>
+        <div class="chart-notes">
+          This is a sample text region to describe this chart.
+        </div>
+      </div>
+    </div>
+
+
+  <div class="col-sm-4">
+    <div class="chart-wrapper">
+      <div class="chart-title">
+        Pageviews by browser (All days)
+      </div>
+      <div class="chart-stage">
+        <!-- browser別View数 -->
+        <%= pie_chart @each_browser_data %>
+      </div>
+      <div class="chart-notes">
+        Notes go down here
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-8">
+    <div class="chart-wrapper">
+      <div class="chart-title">
+        Pageviews by URL (All days)
+      </div>
+      <div class="chart-stage">
+        <%= line_chart @alltime_each_url_data %>
+      </div>
+      <div class="chart-notes">
+        Notes go down here
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="chart-wrapper">
+      <div class="chart-title">
+        Impressions by device
+      </div>
+      <div class="chart-stage">
+        <%= pie_chart @each_platform_data %>
+      </div>
+      <div class="chart-notes">
+        Notes go down here
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="chart-wrapper">
+      <div class="chart-title">
+        Pageviews by URL (past 24hours)
+      </div>
+      <div class="chart-stage">
+        <div class="dummy"></div>
+      </div>
+      <div class="chart-notes">
+        Notes go down here
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="chart-wrapper">
+      <div class="chart-title">
+        Impressions by device
+      </div>
+      <div class="chart-stage">
+        <div class="dummy"></div>
+      </div>
+      <div class="chart-notes">
+        Notes go down here
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="chart-wrapper">
+      <div class="chart-title">
+        Impressions by device
+      </div>
+      <div class="chart-stage">
+        <div class="dummy"></div>
+      </div>
+      <div class="chart-notes">
+        Notes go down here
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>

@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-    resources :impression, :only => [:index, :create]
+    resources :impression, only: :create
+    resources :analytics, only: :index
 end
