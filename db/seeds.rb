@@ -1,10 +1,10 @@
 url = ['http://192.168.33.11:3000/422.html','http://192.168.33.11:3000/500.html','http://192.168.33.11:3000/','http://192.168.33.11:3000/404.html' ]
-browser = ['Internet Explorer','Safari', 'Opera']
-browser_version = ['10.0', '9.1.1', '11.50']
-platform = ['Windows', 'MacIntel', 'Win32']
+browser = ['Internet Explorer','Safari', 'Opera', 'Google Chrome']
+browser_version = ['10.0', '9.1.1', '11.50', '51.0.2704.84']
+platform = ['Windows', 'MacIntel', 'Win32', 'iPhone']
 
-100.times do
-  i = rand(0..2)
+1000.times do
+  i = rand(2..3)
   u = url[i]
   br = browser[i]
   brv = browser_version[i]

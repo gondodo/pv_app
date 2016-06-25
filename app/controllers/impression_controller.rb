@@ -16,6 +16,9 @@ class ImpressionController < ApplicationController
     @time_each_url_data = Impression.group(:url).group_by_hour_of_day(:created_at, format: '%l %P').count
     # browser別View数
     @time_each_browser_data = Impression.group(:browser).group_by_hour_of_day(:created_at, format: '%l %P').count
+
+    # 端末別PV数
+    @each_platform_data = Impression.group(:platform).count
   end
 
   def create
