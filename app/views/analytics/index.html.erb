@@ -1,14 +1,13 @@
 <div class="container-fluid">
   <h2>All Pageviews
-    <%= @allcount_data %></h2>
+    <%= @allcount %></h2>
   <div class="row">
     <div class="col-sm-8">
       <div class="chart-wrapper">
         <div class="chart-title">
-          All Pageviews by URL
+          Pageviews by URL ( All )
         </div>
         <div class="chart-stage">
-          <!-- URL別View数 -->
           <%= bar_chart @each_url_data %>
         </div>
         <div class="chart-notes">
@@ -16,96 +15,193 @@
         </div>
       </div>
     </div>
-
-
-  <div class="col-sm-4">
-    <div class="chart-wrapper">
-      <div class="chart-title">
-        Pageviews by browser (All days)
-      </div>
-      <div class="chart-stage">
-        <!-- browser別View数 -->
-        <%= pie_chart @each_browser_data %>
-      </div>
-      <div class="chart-notes">
-        Notes go down here
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-sm-8">
-    <div class="chart-wrapper">
-      <div class="chart-title">
-        Pageviews by URL (All days)
-      </div>
-      <div class="chart-stage">
-        <%= line_chart @alltime_each_url_data %>
-      </div>
-      <div class="chart-notes">
-        Notes go down here
+    <div class="col-sm-4">
+      <div class="chart-wrapper">``
+        <div class="chart-title">
+          Pageviews by browser ( All )
+        </div>
+        <div class="chart-stage">
+          <%= pie_chart @each_browser_data %>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="col-sm-4">
-    <div class="chart-wrapper">
-      <div class="chart-title">
-        Impressions by device
-      </div>
-      <div class="chart-stage">
-        <%= pie_chart @each_platform_data %>
-      </div>
-      <div class="chart-notes">
-        Notes go down here
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-sm-4">
-    <div class="chart-wrapper">
-      <div class="chart-title">
-        Pageviews by URL (past 24hours)
-      </div>
-      <div class="chart-stage">
-        <div class="dummy"></div>
-      </div>
-      <div class="chart-notes">
-        Notes go down here
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Pageviews by URL ( Day )
+          <b><%= @daycount %></b>
+        </div>
+        <div class="chart-stage">
+          <%= line_chart @day_each_url_data %>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="col-sm-4">
-    <div class="chart-wrapper">
-      <div class="chart-title">
-        Impressions by device
-      </div>
-      <div class="chart-stage">
-        <div class="dummy"></div>
-      </div>
-      <div class="chart-notes">
-        Notes go down here
+    <div class="col-sm-4">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Pageviews by browser ( Day )
+        </div>
+        <div class="chart-stage">
+          <%= pie_chart @day_each_browser_data %>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="col-sm-4">
-    <div class="chart-wrapper">
-      <div class="chart-title">
-        Impressions by device
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Pageviews by URL ( Week )
+          <b><%= @weekcount %></b>
+        </div>
+        <div class="chart-stage">
+          <%= line_chart @week_each_url_data %>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
       </div>
-      <div class="chart-stage">
-        <div class="dummy"></div>
-      </div>
-      <div class="chart-notes">
-        Notes go down here
+    </div>
+    <div class="col-sm-4">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Pageviews by browser ( Week )
+        </div>
+        <div class="chart-stage">
+          <%= pie_chart @week_each_browser_data %>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
       </div>
     </div>
   </div>
 
-</div>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Pageviews by URL ( Month )
+          <b><%= @monthcount %></b>
+        </div>
+        <div class="chart-stage">
+          <%= line_chart @month_each_url_data %>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Pageviews by browser ( Month )
+        </div>
+        <div class="chart-stage">
+          <%= pie_chart @month_each_browser_data %>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Pageviews by device ( All )
+        </div>
+        <div class="chart-stage">
+          <%= pie_chart @each_platform_data %>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Pageviews by device ( Day )
+        </div>
+        <div class="chart-stage">
+          <%= pie_chart @day_platform_data %>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Pageviews by device ( Week )
+        </div>
+        <div class="chart-stage">
+          <%= pie_chart @week_platform_data %>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Pageviews by device ( Month )
+        </div>
+        <div class="chart-stage">
+          <%= pie_chart @month_platform_data %>
+          <div class="chart-notes">
+            Notes go down here
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Notes go down here
+        </div>
+        <div class="chart-stage">
+          <div class="dummy"></div>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="chart-wrapper">
+        <div class="chart-title">
+          Notes go down here
+        </div>
+        <div class="chart-stage">
+          <div class="dummy"></div>
+        </div>
+        <div class="chart-notes">
+          Notes go down here
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
