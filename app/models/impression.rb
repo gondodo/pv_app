@@ -1,45 +1,41 @@
 class Impression < ActiveRecord::Base
-  attr_accessor :agent
-
-  def self.analytics(agent)
+  def analytics(agent)
     # UserAgent を解体しDBにコミットする
-    impression = Impression.new
-    impression.url = agent['url']
-    impression.browser?(agent)
-    impression.browser_version?(agent['userAgent'], impression.browser)
-    impression.platform = agent['platform']
-    impression.save
+    self.url = agent['url']
+    self.browser = browser?(agent)
+    self.browser_version = browser_version?(agent['userAgent'])
+    self.platform = agent['platform']
+    save
   end
 
   # Browser種類を判定する
   def browser?(agent)
-    browser = self.browser
     # 　IE判定
     if agent['appName'].include? 'Internet Explorer'
-      self.browser = 'Internet Explorer'
+      'Internet Explorer'
       # Opera判定
     elsif agent['appName'].include? 'Opera'
-      self.browser = 'Opera'
+      'Opera'
       # Safari Chrome判定
     elsif agent['appVersion'].include? 'Safari'
       # Chrome判定
-      self.browser = if agent['appVersion'].include? 'Chrome'
-                       'Google Chrome'
-                     else
-                       # Safari判定
-                       'Safari'
-                     end
+      if agent['appVersion'].include? 'Chrome'
+        'Google Chrome'
+      else
+        # Safari判定
+        'Safari'
+      end
       # FireFox判定
     elsif agent['userAgent'].include? 'FireFox'
-      self.browser = 'FireFox'
+      'FireFox'
       # その他
     else
-      self.browser = 'unknown'
+      'unknown'
     end
   end
 
   # browser_versionを判定する
-  def browser_version?(userAgent, browser)
+  def browser_version?(userAgent)
     case browser
     when 'Internet Explorer' then
       st = userAgent.index('MSIE')
@@ -64,6 +60,6 @@ class Impression < ActiveRecord::Base
     else
       return ''
     end
-    self.browser_version = userAgent.slice(st + plus..en)
+    userAgent.slice(st + plus..en)
   end
 end

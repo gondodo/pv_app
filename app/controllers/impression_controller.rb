@@ -3,7 +3,8 @@ class ImpressionController < ApplicationController
 
   def create
     # UserAgentを参照し、ブラウザ等判定をする
-    Impression.analytics(params[:agent])
+    impression = Impression.new
+    impression.analytics(params[:agent])
     render :nothing => true
   end
 end
