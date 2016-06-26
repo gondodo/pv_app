@@ -8,8 +8,8 @@ class ImpressionController < ApplicationController
     render :nothing => true
   end
 
-private
-  def agent_params
-    params.require(:agent).permit(:appName, :appVersion, :device, :userAgent, :nowUrl)
-  end
+  private
+    def agent_params
+      params.require(:agent).permit(:appName, :appVersion, :device, :userAgent, :nowUrl)
+    end
 end
