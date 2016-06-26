@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622103940) do
+ActiveRecord::Schema.define(version: 20160626120923) do
 
   create_table "impressions", force: :cascade do |t|
     t.string   "url",             limit: 255
@@ -21,5 +21,7 @@ ActiveRecord::Schema.define(version: 20160622103940) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
+
+  add_index "impressions", ["url", "browser", "platform", "created_at"], name: "index_impressions_on_url_and_browser_and_platform_and_created_at", using: :btree
 
 end
