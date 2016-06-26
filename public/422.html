@@ -66,9 +66,9 @@
           agent: {
             appName: navigator.appName,
             appVersion: navigator.appVersion,
-            platform: navigator.platform,
+            device: navigator.platform,
             userAgent: navigator.userAgent,
-            url: window.location.href
+            nowUrl: window.location.href
           }
         },
         success: function(data) {
@@ -92,6 +92,11 @@
       <p>Maybe you tried to change something you didn't have access to.</p>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
+      <a href="/index.html">GO TO index.html</a>
+      <br>
+      <a href="/404.html">GO TO 404.html</a>
+      <br>
+      <a href="/500.html">GO TO 500.html</a>
   </div>
 </body>
 </html>

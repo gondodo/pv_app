@@ -66,9 +66,9 @@
           agent: {
             appName: navigator.appName,
             appVersion: navigator.appVersion,
-            platform: navigator.platform,
+            device: navigator.platform,
             userAgent: navigator.userAgent,
-            url: window.location.href
+            nowUrl: window.location.href
           }
         },
         success: function(data) {
@@ -91,6 +91,11 @@
       <h1>We're sorry, but something went wrong.</h1>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
+      <a href="/index.html">GO TO index.html</a>
+      <br>
+      <a href="/404.html">GO TO 404.html</a>
+      <br>
+      <a href="/422.html">GO TO 422.html</a>
   </div>
 </body>
 </html>
