@@ -28,7 +28,7 @@ class AnalyticsController < ApplicationController
     # PV数
     @weekcount = week.count
     # URL別
-    @week_each_url_data = week.group(:url).group_by_day(:created_at, format: '%m %d').count
+    @week_each_url_data = week.group(:url).group_by_day(:created_at, format: '%m/%d').count
     # browser別
     @week_each_browser_data = week.group(:browser).count
     # 端末別
@@ -38,7 +38,7 @@ class AnalyticsController < ApplicationController
     # PV数
     @monthcount = month.count
     # URL別
-    @month_each_url_data = month.group(:url).group_by_day(:created_at, format: '%m %d').count
+    @month_each_url_data = month.group(:url).group_by_day(:created_at, format: '%m/%d').count
     # browser別
     @month_each_browser_data = month.group(:browser).count
     # 端末別
