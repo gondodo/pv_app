@@ -64,11 +64,11 @@
         type: "POST",
         data: {
           agent: {
-            appName: navigator.appName,
-            appVersion: navigator.appVersion,
+            app_name: navigator.appName,
+            app_version: navigator.appVersion,
             device: navigator.platform,
-            userAgent: navigator.userAgent,
-            nowUrl: window.location.href
+            user_agent: navigator.userAgent,
+            now_url: window.location.href
           }
         },
         success: function(data) {

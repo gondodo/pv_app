@@ -10,6 +10,6 @@ class ImpressionController < ApplicationController
 
   private
     def agent_params
-      params.require(:agent).permit(:appName, :appVersion, :device, :userAgent, :nowUrl)
+      params.require(:agent).permit(:app_name, :app_version, :device, :user_agent, :now_url)
     end
 end

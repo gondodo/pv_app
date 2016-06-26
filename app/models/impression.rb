@@ -1,9 +1,9 @@
 class Impression < ActiveRecord::Base
-  attr_accessor :appName, :appVersion, :device, :userAgent, :nowUrl
+  attr_accessor :app_name, :app_version, :device, :user_agent, :now_url
   before_create :analytics
 
   def analytics
-    self.url = nowUrl
+    self.url = now_url
     self.browser = browser_check
     self.browser_version = browser_version_check
     self.platform = device
@@ -43,60 +43,60 @@ class Impression < ActiveRecord::Base
     group(:platform).count
   end
 
-private
+  private
 
-  # Browser種類を判定する
-  def browser_check
-    # 　IE判定
-    if appName.include? 'Internet Explorer'
-      'Internet Explorer'
-      # Opera判定
-    elsif appName.include? 'Opera'
-      'Opera'
-      # Safari Chrome判定
-    elsif appVersion.include? 'Safari'
-      # Chrome判定
-      if appVersion.include? 'Chrome'
-        'Google Chrome'
+    # Browser種類を判定する
+    def browser_check
+      # 　IE判定
+      if app_name.include? 'Internet Explorer'
+        'Internet Explorer'
+        # Opera判定
+      elsif app_name.include? 'Opera'
+        'Opera'
+        # Safari Chrome判定
+      elsif app_version.include? 'Safari'
+        # Chrome判定
+        if app_version.include? 'Chrome'
+          'Google Chrome'
+        else
+          # Safari判定
+          'Safari'
+        end
+        # FireFox判定
+      elsif user_agent.include? 'FireFox'
+        'FireFox'
+        # その他
       else
-        # Safari判定
-        'Safari'
+        'unknown'
       end
-      # FireFox判定
-    elsif userAgent.include? 'FireFox'
-      'FireFox'
-      # その他
-    else
-      'unknown'
     end
-  end
 
-  # browser_versionを判定する
-  def browser_version_check
-    case browser
-    when 'Internet Explorer' then
-      st = userAgent.index('MSIE')
-      en = userAgent.index(';')
-      plus = 4
-    when 'Opera' then
-      st = userAgent.index('Version')
-      en = userAgent.length
-      plus = 8
-    when 'Safari' then
-      st = userAgent.index('Version')
-      en = userAgent.index(' ', st)
-      plus = 8
-    when 'Google Chrome' then
-      st = userAgent.index('Chrome')
-      en = userAgent.index(' ', st)
-      plus = 7
-    when 'FireFox' then
-      st = userAgent.index('FireFox')
-      en = userAgent.length
-      plus = 8
-    else
-      return ''
+    # browser_versionを判定する
+    def browser_version_check
+      case browser
+      when 'Internet Explorer' then
+        st = user_agent.index('MSIE')
+        en = user_agent.index(';')
+        plus = 4
+      when 'Opera' then
+        st = user_agent.index('Version')
+        en = user_agent.length
+        plus = 8
+      when 'Safari' then
+        st = user_agent.index('Version')
+        en = user_agent.index(' ', st)
+        plus = 8
+      when 'Google Chrome' then
+        st = user_agent.index('Chrome')
+        en = user_agent.index(' ', st)
+        plus = 7
+      when 'FireFox' then
+        st = user_agent.index('FireFox')
+        en = user_agent.length
+        plus = 8
+      else
+        return ''
+      end
+      user_agent.slice(st + plus..en)
     end
-    userAgent.slice(st + plus..en)
-  end
 end
